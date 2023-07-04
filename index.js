@@ -4,13 +4,13 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const app = express();
-const PORT = 3000;
+const { PORT, MONGODB_URI } = require("./config");
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect("mongodb+srv://anurag:anurag@cluster0.spqvxyc.mongodb.net/todo-app",
+mongoose.connect(MONGODB_URI,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true
