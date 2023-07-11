@@ -32,6 +32,10 @@ const todoSchema = new mongoose.Schema({
 
 const Todo = mongoose.model('Todo', todoSchema);
 
+app.get("/", (req, res) => {
+    res.send("Welcome to the backend of Todo App");
+})
+
 app.get("/todos", async (req, res) => {
     try {
         const todos = await Todo.find();
